@@ -8,7 +8,6 @@ export const NavBar = () => {
             
             <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-                
                 <NavLink 
                     className={({isActive}) => `nav-link ${isActive ? 'active' : ''}` }
                     to="/"
