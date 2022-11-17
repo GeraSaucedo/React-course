@@ -1,10 +1,11 @@
-import React from 'react'
+import { Typography } from "@mui/material";
+import { MailOutline } from "@mui/icons-material";
 
 export const JournalPage = () => {
   return (
     <>
-        <h1>Journal page</h1>
-        <hr />
+        <Typography variant='h1' >Journal page</Typography>
+        <MailOutline />
     </>
   )
 }
