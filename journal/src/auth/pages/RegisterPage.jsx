@@ -3,6 +3,8 @@ import { Link as RouterLink } from "react-router-dom";
 import React, { useState } from 'react'
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
+import { useDispatch } from 'react-redux';
+import { startCreatingUserWithEmailPassword } from '../../store/auth/thunks';
 
 const formValidations = {
   email: [(value) => value.includes('@'), 'El correo debe de tener una @'],
@@ -11,6 +13,8 @@ const formValidations = {
 }
 
 export const RegisterPage = () => {
+
+   const dispatch = useDispatch();
 
    const [formSubbmitted, setFormSubbmitted] = useState(false);
 
@@ -28,6 +32,10 @@ export const RegisterPage = () => {
     const onSubmit = (event) => {
       event.preventDefault();
       setFormSubbmitted(true);
+
+      if(!isFormValid) return;
+
+      dispatch(startCreatingUserWithEmailPassword(formState));
     }
 
     return (
